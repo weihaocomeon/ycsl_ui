@@ -53,7 +53,7 @@ export default {
     theme: '换肤'
   },
   login: {
-    title: '中天吉奥中小项目开发框架_v1.0',
+    title: '铜山一窗受理集成服务平台',
     //title:'铜山不动产便民管理系统_v1.0',
     logIn: '确认登录',
     username: '账号',

@@ -3,44 +3,53 @@
         <div v-show="showQueried">
             <queried @saveQueriedData="saveQueriedData"></queried>
         </div>
+       
         <div v-show="showForFill">
-            <for-fill @openQuerid="openQuerid"></for-fill>
+            <for-fill @openQuerid="openQuerid" @showfjinfoview="showFjInfoView"></for-fill>
         </div>
+
+        <div v-show="showFjInfo">
+            <fj-image @openQuerid="openQuerid"></fj-image>
+        </div>
+      
     </div>
 </template>
 <script>
 import Queried from './components/Queried';//导入房产信息组件
-import ForFill from './components/ForFill'
+import ForFill from './components/ForFill'; //信息框组件
+import FjImage from './components/FjImage'; //信息框组件
 export default {
     components:{
         Queried,
-        ForFill
+        ForFill,
+        FjImage
     },
     data(){
         return{
             showQueried:true,
             showForFill:false,
+            showFjInfo:false
         }
     },
     methods:{
+        showFjInfoView(){
+           // alert('c')
+            this.showQueried = false;
+            this.showForFill = false;  
+            this.showFjInfo = true;  
+        },
         saveQueriedData(val){
-            console.log(val)
-            this.$confirm('提交成功, 是否继续?', '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'success'
-            }).then(() => {
+                this.showFjInfo = false;
                 this.showQueried = false;
                 this.showForFill = true;
-            }).catch(() => {
-                this.showQueried = true;
-                this.showForFill = false;    
-            });
+           
         },
         openQuerid(){
             this.showQueried = true;
-            this.showForFill = false;    
-        }
+            this.showForFill = false;  
+            this.showFjInfo = false;  
+        },
+      
     }
 }
 </script>

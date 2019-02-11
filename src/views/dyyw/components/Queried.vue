@@ -1,30 +1,36 @@
 <template>
     <div>
-        <el-form :inline="true" class="demo-form-inline" style="padding-left: 30px;padding-top:10px;margin-bottom: -15px;">
-            <el-form-item>
-                <!-- 手动调出相关信息搜索框 -->
-                <el-button type="text" @click="openSearchDialog">搜索相关信息</el-button>
-            </el-form-item>
-            <el-form-item>
-                <!-- 保存搜索出的数据 -->
-                <el-button type="text" @click="saveQuried">保存</el-button>
-            </el-form-item>
+        <el-form :inline="true"  style="margin-top:20px;margin-left:20px" >
+            <el-row> 
+             <el-col :span="22">
+                <el-form-item>
+                    <!-- 手动调出相关信息搜索框 -->
+                    <el-button icon="el-icon-zoom-in" type="primary" @click="openSearchDialog">添加房屋信息</el-button>
+                </el-form-item>
+             </el-col>
+             <el-col :span="1">
+                <el-form-item>
+                    <!-- 保存搜索出的数据 -->
+                    <el-button type="text" @click="saveQuried">录入抵押信息<i class="el-icon-edit"></i>>></el-button>
+                </el-form-item>
+            </el-col>
+            </el-row>
         </el-form>
         <el-collapse v-model="activeNames">
             <!-- 房产信息 -->
             <el-collapse-item v-if="showFwInfo" name="1" style="margin-bottom:5px">
                 <template slot="title" >
-                    <div  style="background-color:#DCDFE6">
+                    <div   style="background-color:#0078D7">
                         <i class="iconfont icon-fangwu" style="margin-left:5px"></i>
                         <strong>
-                            <span style="font-size:18px">不动产登记信息(单位：平方米、元)</span>
+                            <span  style="font-size:18px;color:#ffffff">不动产登记信息</span>
                         </strong>
                     </div>
                 </template>
                 <housing v-bind:fwData="fwData"></housing>
             </el-collapse-item>
             <!-- 共有方式 -->
-            <el-collapse-item  v-if="showGyfsInfo" name="2" style="margin-bottom:5px">
+            <!-- <el-collapse-item  v-if="showGyfsInfo" name="2" style="margin-bottom:5px">
                 <template slot="title" >
                     <div  style="background-color:#DCDFE6">
                         <i class="iconfont icon-57" style="margin-left:5px"></i>
@@ -40,14 +46,14 @@
                         <el-radio label="按份共有" class="radio" border></el-radio>
                     </el-radio-group>
                 </div>
-            </el-collapse-item>
+            </el-collapse-item> -->
             <!-- 权利人信息 -->
             <el-collapse-item  v-if="showQlrInfo" name="2" style="margin-bottom:5px">
                 <template slot="title" >
-                <div  style="background-color:#DCDFE6">
+                <div   style="background-color:#0078D7">
                     <i class="iconfont icon-renyuan" style="margin-left:5px"></i>
                     <strong>
-                        <span style="font-size:18px">权利人信息</span>
+                        <span  style="font-size:18px;color:#ffffff">权利人信息</span>
                     </strong>
                 </div>
                 </template>
@@ -56,10 +62,10 @@
             <!-- 卖方信息 -->
             <el-collapse-item v-if="showMfInfos" name="3" style="margin-bottom:5px">
                 <template slot="title" >
-                <div  style="background-color:#DCDFE6">
+                <div   style="background-color:#0078D7">
                     <i class="iconfont icon-renyuan" style="margin-left:5px"></i>
                     <strong>
-                    <span style="font-size:18px">卖方信息</span>
+                    <span  style="font-size:18px;color:#ffffff">卖方信息</span>
                     </strong>
                 </div>
                 </template>
@@ -68,10 +74,10 @@
             <!-- 已存在的抵押信息 -->
             <el-collapse-item v-if="showOldDyInfos" name="4" style="margin-bottom:5px">
                 <template slot="title" >
-                <div  style="background-color:#DCDFE6">
+                <div   style="background-color:#0078D7">
                     <i class="iconfont icon-fangwu" style="margin-left:5px"></i>
                     <strong>
-                    <span style="font-size:18px">已存在的抵押信息</span>
+                    <span  style="font-size:18px;color:#ffffff">已存在的抵押信息</span>
                     </strong>
                 </div>
                 </template>

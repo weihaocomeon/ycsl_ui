@@ -1,23 +1,29 @@
 <template>
     <div>
-        <el-form :inline="true" class="demo-form-inline" style="padding-left: 30px;padding-top:10px;margin-bottom: -15px;">
-            <el-form-item>
-                <!-- 手动调出相关信息搜索框 -->
-                <el-button type="text" @click="openQuried">查看上一页</el-button>
-            </el-form-item>
-            <el-form-item>
-                <!-- 保存搜索出的数据 -->
-                <el-button type="text" @click="saveForFill">保存</el-button>
-            </el-form-item>
+        <el-form :inline="true" style="margin-top:20px;margin-left:20px" >
+             <el-row> 
+             <el-col :span="22">
+                <el-form-item>
+                    <!-- 手动调出相关信息搜索框 -->
+                    <el-button type="text" @click="openQuried"><<<i class="el-icon-document"></i>查看房屋信息</el-button>
+                </el-form-item>
+             </el-col>
+             <el-col :span="1">
+                <el-form-item>
+                    <!-- 保存搜索出的数据 -->
+                    <el-button type="text" @click="upLoadImg">上传图像信息<i class="el-icon-picture"></i></el-button>  
+                </el-form-item>
+              </el-col>
+            </el-row>
         </el-form>
         <el-collapse v-model="activeNames">
             <!-- 抵押信息 -->
-            <el-collapse-item  v-if="showDyInfo" name="1" style="margin-bottom:5px">
+            <el-collapse-item  v-if="showDyInfo" name="1" style="margin-bottom:5px">  
                 <template slot="title" >
-                <div  style="background-color:#DCDFE6">
+                <div  style="background-color:#0078D7">
                     <i class="iconfont icon-renyuan" style="margin-left:5px"></i>
                     <strong>
-                        <span style="font-size:18px">抵押信息<el-tag type="danger">请按照抵押合同录入信息</el-tag></span>
+                        <span style="font-size:18px;color:#ffffff">抵押信息录入<el-tag type="danger">请按照抵押合同录入信息</el-tag></span>
                     </strong>
                 </div>
                 </template>
@@ -28,10 +34,10 @@
             <!-- 抵押人信息 -->
             <el-collapse-item  v-if="showDyrInfo" name="2" style="margin-bottom:5px">
                 <template slot="title" >
-                <div  style="background-color:#DCDFE6">
+                <div  style="background-color:#0078D7">
                     <i class="iconfont icon-renyuan" style="margin-left:5px"></i>
                     <strong>
-                        <span style="font-size:18px">抵押人信息</span>
+                        <span style="font-size:18px;color:#ffffff">抵押人信息录入</span>
                     </strong>
                 </div>
                 </template>
@@ -63,8 +69,8 @@ export default {
         openQuried(){
             this.$emit('openQuerid')
         },
-        saveForFill(){
-
+        upLoadImg(){
+            this.$emit('showfjinfoview')
         }
     }
 }

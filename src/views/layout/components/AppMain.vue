@@ -1,5 +1,5 @@
 <template>
-  <section class="app-main" style="min-height: 100%">
+  <section class="app-main" id="app-main" style="min-height: 100%">
     <transition name="fade" mode="out-in">
       <!-- 缓存 加入缓存的组件会被缓存 -->
       <keep-alive :include="cachedViews">

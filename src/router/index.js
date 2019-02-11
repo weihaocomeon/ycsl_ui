@@ -171,6 +171,22 @@ export const asyncRouterMap = [{
   }
 ]
 },
+
+{
+  path: '/tysj',
+  component: Layout,
+  name: '统一收件',
+  icon: 'work', // 这个可以乱写 读取的是库中的数据
+  authority: 'tysj', // 这个不能乱写 因为要和库中的比较
+  children: [{
+    path: 'zyyw', // 这个必须要填写为组件名称才能正确跳转
+    component: _import('tysj/zyyw/index'), // 这个也不能乱写 必须制定到具体的组件
+    name: '新建业务',
+    authority: 'zyyw'
+  }
+]
+},
+
 {
   path: '/myWork',
   component: Layout,
@@ -178,53 +194,16 @@ export const asyncRouterMap = [{
   icon: 'work', // 这个可以乱写 读取的是库中的数据
   authority: 'myWork', // 这个不能乱写 因为要和库中的比较
   children: [{
-    path: 'apply', // 这个必须要填写为组件名称才能正确跳转
-    component: _import('apply/index'), // 这个也不能乱写 必须制定到具体的组件
-    name: '在线申请',
-    authority: 'apply'
+    path: 'myAgency', // 这个必须要填写为组件名称才能正确跳转
+    component: _import('myAgency/index'), // 这个也不能乱写 必须制定到具体的组件
+    name: '我的待办',
+    authority: 'myAgency'
   },
   {
-    path: 'bespeak', // 这个必须要填写为组件名称才能正确跳转
-    component: _import('bespeak/index'), // 这个也不能乱写 必须制定到具体的组件
-    name: '在线预约',
-    authority: 'bespeak'
-  },{
-    path: 'noticeManager',
-      component: _import('notice/index'),
-      name: '公告管理',
-      authority: 'noticeManager'
-  }, {
-    path: 'addNoticeManager',
-      component: _import('notice/edit'),
-      name: '发布公告',
-      authority: 'addNoticeManager'
-  },
-  {
-    path: 'smfw',
-      component: _import('smfw/index'),
-      name: '上门服务',
-      authority: 'smfw'
-  },{
-    path: 'tsjy',
-      component: _import('tsjy/index'),
-      name: '星级评价',
-      authority: 'tsjy'
-  },{
-    path: 'yjx',
-      component: _import('yjx/index'),
-      name: '意见箱',
-      authority: 'yjx'
-  },{
-    path: 'wxuser',
-      component: _import('wxuser/index'),
-      name: '微信用户管理',
-      authority: 'wxuser'
-  },
-  {
-    path: 'cxsq',
-      component: _import('cxsq/index'),
-      name: '查询申请',
-      authority: 'cxsq'
+    path: 'xsbg', // 这个必须要填写为组件名称才能正确跳转
+    component: _import('xsbg/index'), // 这个也不能乱写 必须制定到具体的组件
+    name: '协税办公',
+    authority: 'xsbg'
   }
 ]
 },

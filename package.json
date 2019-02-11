@@ -41,6 +41,7 @@
     "vue-event-calendar": "^1.5.2",
     "vue-i18n": "7.3.2",
     "vue-multiselect": "2.0.8",
+    "vue-print-nb": "^1.0.3",
     "vue-quill-editor": "^3.0.6",
     "vue-resource": "^1.5.1",
     "vue-router": "3.0.1",
