@@ -19,7 +19,7 @@ const getters = {
   elements: state => state.user.elements,
   blwd: state =>state.sqxq.blwd,//办理网点
   ywlx: state =>state.sqxq.ywlx, //申请详情  
-  sqxq: state =>state.sqxq.sqxq 
-  
+  sqxq: state =>state.sqxq.sqxq, 
+  xsywbh: state =>state.xsbg.xsywbh
 }
 export default getters

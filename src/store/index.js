@@ -7,6 +7,7 @@ import tagsView from './modules/tagsView'
 import sqxq from './modules/sqxq'
 import smfw from './modules/smfw'
 import user from './modules/user'
+import xsbg from './modules/xsbg'
 import getters from './getters'
 
 Vue.use(Vuex)
@@ -19,7 +20,8 @@ const store = new Vuex.Store({
     tagsView,
     user,
     sqxq,
-    smfw
+    smfw,
+    xsbg
   },
   getters
 })

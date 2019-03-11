@@ -35,6 +35,11 @@ export default {
   },
   watch: {
     $route() {
+      //判断当前路由
+      console.log(this.$route)
+      if(this.$route.name=='协税办公'){
+        this.$store.dispatch('saveXsywbh', '')
+      }
       this.addViewTags()
       this.moveToCurrentTag()
     },

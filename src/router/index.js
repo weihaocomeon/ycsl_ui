@@ -46,6 +46,12 @@ export const constantRouterMap = [
 
     },
     {
+      path: 'myWork/xsbgs',
+      component: _import('xsbg/index'),
+      name: '业务详情',
+
+    },
+    {
       path: 'myWork/detailInfo_smfw',
       component: _import('smfw/detailInfo/index'),
       name: '上门服务审批',

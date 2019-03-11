@@ -1,9 +1,13 @@
 <template>
     <div>
         <el-row> 
-             <el-col :span="22">
+             <el-col :span="10">
                     <!-- 跳转到合同展示页 -->
                     <el-button  type="text" @click="tochangeview(true,false,false,false)"><<<i class="el-icon-tickets"></i>合同信息查看</el-button>
+             </el-col>
+             <el-col :span="12" style="margin-top:10px">
+                    <!-- 合同信息展示页 -->
+                    <span >业务编号:{{xwblForm.ywbh}}</span>
              </el-col>
              <el-col :span="1">
                     <!-- 跳转到附件选取页面 -->
@@ -21,30 +25,30 @@
                             <div slot="header"  class="clearfix">
                                 <span>以下由买卖双方共同回答 :</span>
                                 <el-button  type="warning" @click="resetData(1,'sfhdForm')">重新选择</el-button>
-                                <el-button  type="warning" @click="testBd('sfhdForm')">测试表单验证</el-button>
+                                <!-- <el-button  type="warning" @click="testBd('sfhdForm')">测试表单验证</el-button> -->
                             </div>
                             <el-form ref="sfhdForm" :rules="sfhdRules"  :model="xwblForm" label-width="80px">
                                 <el-form-item prop="zsbd">
                                     <h3 class="textStyle">1. 申请登记事项是否为申请人真实意思表示?</h3>
                                     <template>
                                     <el-radio-group v-model="xwblForm.zsbd">
-                                        <el-radio label="1" border>是</el-radio>
-                                        <el-radio label="2" border>否</el-radio>
+                                        <el-radio :label="1" border>是</el-radio>
+                                        <el-radio :label="2" border>否</el-radio>
                                     </el-radio-group>
                                     </template>
                                 </el-form-item>
                                 <el-form-item  prop="zsyx">
                                     <h3 class="textStyle">2. 申请登记所递交材料是否为真实有效的？</h3>
                                     <el-radio-group v-model="xwblForm.zsyx">
-                                        <el-radio label="1" border>是</el-radio>
-                                        <el-radio label="2" border>否</el-radio>
+                                        <el-radio :label="1" border>是</el-radio>
+                                        <el-radio :label="2" border>否</el-radio>
                                     </el-radio-group>
                                 </el-form-item>
                             <el-form-item prop="jyfe">
                                     <h3 class="textStyle">3. 本次交易份额是否满100%？</h3>
                                     <el-radio-group v-model="xwblForm.jyfe">
-                                        <el-radio label="1" border>是</el-radio>
-                                        <el-radio label="2" border>否</el-radio>
+                                        <el-radio :label="1" border>是</el-radio>
+                                        <el-radio :label="2" border>否</el-radio>
                                     </el-radio-group>    
                                     <el-input class="data-fwinfo" v-if="xwblForm.jyfe==2" v-model="xwblForm.jyfeValue">
                                         <template slot="prepend">输入交易份额</template>
@@ -64,15 +68,15 @@
                             <div slot="header" class="clearfix">
                                 <span>以下由被询问人(卖方)回答</span>
                                 <el-button  type="warning" @click="resetData(2,'sellerHdForm')">重新选择</el-button>
-                                 <el-button  type="warning" @click="testBd('sellerHdForm')">测试表单验证</el-button>
+                                 <!-- <el-button  type="warning" @click="testBd('sellerHdForm')">测试表单验证</el-button> -->
                             </div>
                             <el-form ref="sellerHdForm" :rules="sellerHdRules"  :model="xwblForm" label-width="80px">
                                 <el-form-item prop="sellerGyfs">
                                     <h3 class="textStyle">1. 申请登记的不动产是共有还是单独所有?</h3>
                                     <template>
                                     <el-radio-group v-model="xwblForm.sellerGyfs">
-                                        <el-radio  label="1" border>单独所有</el-radio>
-                                        <el-radio  label="2" border>共有</el-radio>
+                                        <el-radio  :label="1" border>单独所有</el-radio>
+                                        <el-radio  :label="2" border>共有</el-radio>
                                     </el-radio-group>
                                     </template>
                                 </el-form-item>
@@ -80,8 +84,8 @@
                                     <h3 class="textStyle">2. 你所出售的住房属于在江苏省范围内家庭(含配偶)唯一居住用房吗？</h3>
                                     <template>
                                     <el-radio-group v-model="xwblForm.mwwy">
-                                        <el-radio label="1" border>属于家庭的省内唯一且满5年住房</el-radio>
-                                        <el-radio label="2" border>否</el-radio>
+                                        <el-radio :label="1" border>属于家庭的省内唯一且满5年住房</el-radio>
+                                        <el-radio :label="2" border>否</el-radio>
                                     </el-radio-group>
                                     </template>
                                 </el-form-item>
@@ -89,10 +93,10 @@
                                     <h3 class="textStyle">3. 如属于省内唯一且满5年，请如实回答您的婚姻状况。您是否已婚？</h3>
                                      <template>
                                     <el-radio-group v-model="xwblForm.sellerHyzk">
-                                        <el-radio  label="1" border>已婚</el-radio>
-                                        <el-radio  label="2" border>未婚</el-radio>
-                                        <el-radio  label="3" border>离异</el-radio>
-                                        <el-radio  label="4" border>丧偶</el-radio>
+                                        <el-radio  :label="1" border>已婚</el-radio>
+                                        <el-radio  :label="2" border>未婚</el-radio>
+                                        <el-radio  :label="3" border>离异</el-radio>
+                                        <el-radio  :label="4" border>丧偶</el-radio>
                                     </el-radio-group>
                                     <el-button type="primary" icon="el-icon-location" v-if="xwblForm.sellerHyzk==1" @click="loadXgr('售房者','sellerPoName','sellerPoIdCard')">关联售房者</el-button> 
                                     </template>
@@ -107,8 +111,8 @@
                                     <h3 class="textStyle">4. 您/您们是否有曾用名？</h3>
                                     <template>
                                     <el-radio-group v-model="xwblForm.sellerIsCym">
-                                        <el-radio label="1" border>无曾用名</el-radio>
-                                        <el-radio label="2" border>有曾用名</el-radio>
+                                        <el-radio :label="1" @change="noCymChange('售房者')" border>无曾用名</el-radio>
+                                        <el-radio :label="2" border>有曾用名</el-radio>
                                     </el-radio-group>
                                     </template>
                                      <el-button type="primary" icon="el-icon-location" v-if="xwblForm.sellerIsCym==2" @click="loadCym('售房者')">选择售房者</el-button>  
@@ -133,16 +137,16 @@
                             <div slot="header" class="clearfix">
                                 <span>以下为被询问人(买方)回答 :</span>
                                 <el-button  type="warning" @click="resetData(3,'buyerHdForm')">重新选择</el-button>
-                                <el-button  type="warning" @click="testBd('buyerHdForm')">测试表单验证</el-button>
+                                <!-- <el-button  type="warning" @click="testBd('buyerHdForm')">测试表单验证</el-button> -->
                             </div>
                             <el-form ref="buyerHdForm" :rules="buyerHdForm" :model="xwblForm" label-width="80px">
                                 <el-form-item prop="buyerGyfs">
                                     <h3 class="textStyle">1. 申请登记的不动产是单独所有、共同共有、按份共有?</h3>
                                     <template>
                                         <el-radio-group v-model="xwblForm.buyerGyfs">
-                                            <el-radio  label="1" border>单独所有</el-radio>
-                                            <el-radio  label="2" border>共同共有</el-radio>
-                                            <el-radio  label="3" border>按份共有</el-radio>
+                                            <el-radio  :label="1" border>单独所有</el-radio>
+                                            <el-radio  :label="2" border>共同共有</el-radio>
+                                            <el-radio  :label="3" border>按份共有</el-radio>
                                         </el-radio-group>
                                     </template>
                                     <div v-for="(item,index)  in qlrInfo" v-if="xwblForm.buyerGyfs==3" >
@@ -156,9 +160,9 @@
                                     <h3 class="textStyle">2. 所购入房屋属于家庭(含配偶及未成年子女)在铜山区拥有的第几套住房？</h3>
                                     <template>
                                     <el-radio-group v-model="xwblForm.buyerFwts">
-                                        <el-radio  label="1" border>第一套</el-radio>
-                                        <el-radio  label="2" border>第二套</el-radio>
-                                        <el-radio  label="3" border>两套以上</el-radio>
+                                        <el-radio  :label="1" border>第一套</el-radio>
+                                        <el-radio  :label="2" border>第二套</el-radio>
+                                        <el-radio  :label="3" border>两套以上</el-radio>
                                     </el-radio-group>
                                     </template>
                                 </el-form-item>
@@ -166,10 +170,10 @@
                                     <h3 class="textStyle">3. 如属于家庭在铜山区的第一套或者第二套的,请如实回答您的婚姻状况？</h3>
                                     <template>
                                     <el-radio-group v-model="xwblForm.buyerHyzk">
-                                        <el-radio  label="1" border>已婚</el-radio>
-                                        <el-radio  label="2" border>未婚</el-radio>
-                                        <el-radio  label="3" border>离异</el-radio>
-                                        <el-radio  label="4" border>丧偶</el-radio>
+                                        <el-radio  :label="1" border>已婚</el-radio>
+                                        <el-radio  :label="2" border>未婚</el-radio>
+                                        <el-radio  :label="3" border>离异</el-radio>
+                                        <el-radio  :label="4" border>丧偶</el-radio>
                                     </el-radio-group>
                                     </template>  
                                      <el-button type="primary" icon="el-icon-location" v-if="xwblForm.buyerHyzk==1" @click="loadXgr('购房者','buyerPoName','buyerPoIdCard')">关联购房者</el-button>  
@@ -184,8 +188,8 @@
                                     <h3 class="textStyle">4. 您/您们是否有曾用名？</h3>
                                     <template>
                                     <el-radio-group v-model="xwblForm.buyerIsCym">
-                                        <el-radio label="1" border>无曾用名</el-radio>
-                                        <el-radio label="2" border>有曾用名</el-radio>
+                                        <el-radio :label="1" @change="noCymChange('购房者')" border>无曾用名</el-radio>
+                                        <el-radio :label="2" border>有曾用名</el-radio>
                                     </el-radio-group>
                                     </template>
                                     <el-button type="primary" icon="el-icon-location" v-if="xwblForm.buyerIsCym==2" @click="loadCym('购房者')">选择购房者</el-button>  
@@ -200,9 +204,9 @@
                             <el-form-item prop="haveZn">
                                     <h3 class="textStyle">5. 您是否有未成年子女(小于18周岁)</h3>
                                     <template>
-                                    <el-radio-group v-model="xwblForm.haveZn">
-                                        <el-radio label="1" border>无</el-radio>
-                                        <el-radio label="2" border>有</el-radio>
+                                    <el-radio-group v-model="xwblForm.haveZn" @change="haveWcnZnChange">
+                                        <el-radio :label="1" @click="" border>无</el-radio>
+                                        <el-radio :label="2" border>有</el-radio>
                                     </el-radio-group>
                                     </template>    
                                     <el-button type="primary" icon="el-icon-circle-plus-outline" v-if="xwblForm.haveZn==2" @click="addZn">增加一条</el-button>
@@ -223,7 +227,7 @@
                             </el-card>    
                        </div>        
                    </el-col>
-
+   
                    <el-col :span="12">
                         <div class="grid-content bg-purple" style="margin: 10px">
                            <el-card class="box-card">
@@ -263,7 +267,7 @@
 
 <script>
 import htyHtml from './image/htyHtml';
-import { saveXwbl } from "@/api/ycsl/index";//询问笔录保存测试
+import { saveXwbl,getXwblByYwbh } from "@/api/ycsl/index";//询问笔录保存测试
 export default {
     components:{
         htyHtml
@@ -316,7 +320,7 @@ export default {
                 //根据权利人属性验证 是否该属性为空 
                this.qlrInfo.forEach(qlr => {
                     if(qlr.xgrlx==qlrType&&('cym' in qlr)&&qlr.cym==''){//有该属性
-                        callback(new Error('请输入已选择人的曾用名'))
+                        callback(new Error('请输入已选择人的曾用名')) 
                     }
                })
                callback()
@@ -393,20 +397,18 @@ export default {
                 sellerPoName:'',//配偶名称
                 sellerPoIdCard:'',//配偶身份证号
                 sellerIsCym:'',//是否有曾用名
-                sellerCym:'',//曾用名名称
                 buyerGyfs:'',//买方共有方式
                 buyerFwts:'',//买方买方房屋套数
                 buyerHyzk:'',//买方婚姻状况
                 buyerPoName:'',//买方配偶名称
                 buyerPoIdCard:'',//买方配偶身份证号
                 buyerIsCym:'',//买方是否有曾用名
-                buyerCym:'',//买方曾用名名称
                 haveZn:'',//是否有未满18周岁子女
                 zn:[
-                    {
-                    znName:'',//子女名称
-                    znIdCard:'',//子女身份证号
-                    }
+                    // {
+                    // znName:'',//子女名称
+                    // znIdCard:'',//子女身份证号
+                    // }
                 ],
                 },
             sfhdRules:{
@@ -444,10 +446,35 @@ export default {
         'qlr-info':Array
     },
     methods:{
+        //是否有未成年子女的选框更改
+        haveWcnZnChange(value){
+            if(value==1){ //清空数组
+                this.xwblForm.zn=[]
+            }else{
+                const znIndex =  {
+                     znName:'',//子女名称
+                     znIdCard:'',//子女身份证号
+                     }
+                this.xwblForm.zn.push(znIndex)
+            }
+        },
+        //无曾用名选项被触发
+        noCymChange(type){
+                this.qlrInfo.forEach(item => {
+                    if(item.xgrlx==type){
+                        this.$delete(item,'cym')
+                    }
+                });
+        },
         //测试询问笔录
         testSaveXwbl(){
-            saveXwbl(this.xwblForm).then(response => {
-            })
+            console.log(this.qlrInfo)
+            const query = {
+                xwbl:this.xwblForm,
+                qlrInfos:this.qlrInfo
+            }
+             saveXwbl(query).then(response => {
+             })
         },
         //确认按钮
         dialogConfirm(){
@@ -506,7 +533,6 @@ export default {
                 this.xwblForm.sellerPoName=''
                 this.xwblForm.sellerPoIdCard=''
                 this.xwblForm.sellerIsCym=''
-                this.xwblForm.sellerCym=''
             } else {
                 this.xwblForm.buyerGyfs=''
                 this.xwblForm.buyerFwts=''
@@ -514,7 +540,6 @@ export default {
                 this.xwblForm.buyerPoName=''
                 this.xwblForm.buyerPoIdCard=''
                 this.xwblForm.buyerIsCym=''
-                this.xwblForm.buyerCym=''
                 this.xwblForm.haveZn=''
                 this.xwblForm.zn=[ {
                     znName:'',//子女名称
@@ -536,10 +561,19 @@ export default {
                     }
                 })
                 if(boolean_final_result){
-                    //触发数据保存到总页面 savexwblinfo
-                    this.$emit('savexwblinfo',this.xwblForm)
-                    //组织查询参数至总页面 
-                    this.$emit('tochangeview',isJyInfoShow,isXwblInfoShow,isFjSelectShow)
+                    console.log(this.xwblForm.ywbh)
+                    //进行数据页的保存操作
+                     const query = {
+                        xwbl:this.xwblForm,
+                        qlrInfos:this.qlrInfo
+                    }
+                    saveXwbl(query).then(response => {
+                        //触发数据保存到总页面 savexwblinfo
+                        this.$emit('savexwblinfo',this.xwblForm)
+                        //组织查询参数至总页面 
+                        this.$emit('tochangeview',isJyInfoShow,isXwblInfoShow,isFjSelectShow)
+                    })
+                    
                 }else{
                     this.$message({
                         showClose: true,
@@ -587,6 +621,23 @@ export default {
                 }
                 });
         }
+    },
+    created(){
+        //判断全局变量中是否有业务编号
+          this.xwblForm.ywbh = this.$store.state.xsbg.xsywbh
+          console.log('业务编号:'+this.xwblForm.ywbh)
+          //根据业务编号查询库中是否有相应的记录 如果有则进行展示
+          if(this.xwblForm.ywbh!=''){
+              const query = {ywbh:this.xwblForm.ywbh}
+              getXwblByYwbh(query).then(response => {
+                      console.log('不畏空')
+                    this.xwblForm = response.data
+                    this.xwblForm.ywbh = this.$store.state.xsbg.xsywbh
+                    })
+
+          }else{
+              this.$alert('业务编号为空!', '消息提醒', {confirmButtonText: '确定'});
+          }
     }
 }
 </script>

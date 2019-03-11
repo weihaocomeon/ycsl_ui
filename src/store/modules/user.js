@@ -21,7 +21,7 @@ const user = {
     introduction: '',
     roles: [],
     menus: undefined,
-    eleemnts: undefined,
+    elements: undefined,
     permissionMenus: undefined,
     setting: {
       articlePlatform: []
